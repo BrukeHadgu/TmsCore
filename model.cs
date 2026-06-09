@@ -1,5 +1,4 @@
 // Exercise 3
-
 public record EnrollmentRecord(string StudentId, string CourseCode, DateTime EnrolledAt);
 public class Course
 {
@@ -22,7 +21,6 @@ public class Course
     public int EnrolledCount { get; set; }
 }
 
-
 public class Student
 {
     public required string Id   { get; init; }
@@ -34,7 +32,6 @@ public class Student
             ? value
             : throw new ArgumentException("Name cannot be empty or whitespace.", nameof(value));
     }
-
     public int Age
     {
         get;
@@ -43,7 +40,6 @@ public class Student
             : throw new ArgumentOutOfRangeException(nameof(value),
                 "Age must be between 16 and 100.");
     }
-
     public decimal GPA
     {
         get;
@@ -53,8 +49,6 @@ public class Student
                 "GPA must be between 0.0 and 4.0.");
     }
 }
-
-
 
 
 public interface IGradable
@@ -75,7 +69,6 @@ public class Quiz : IGradable
         return (decimal)CorrectAnswers / TotalQuestions * 100m;
     }
 }
-
 public class LabAssignment : IGradable
 {
     public required string  Title              { get; init; }
@@ -84,14 +77,10 @@ public class LabAssignment : IGradable
 
     public decimal CalculateGrade()
     {
-        // 70% functionality, 30% code quality
+        
         return (FunctionalityScore * 0.7m) + (CodeQualityScore * 0.3m);
     }
 }
-
-
-
-// Exercise  Custom Exceptions
 
 public class TmsDatabaseException : Exception
 {

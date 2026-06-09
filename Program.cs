@@ -109,9 +109,6 @@ Console.WriteLine($"Enrolled: {result.StudentId} in {result.CourseCode}");
         Console.WriteLine($"Business rule: {ex.Message}");
     }
 
-
-    // Exercise Five Collections
-
 List<Student> students =
 [
     new Student { Id = "S1", Name = "Abeba",    Age = 22, GPA = 3.8m },
@@ -148,7 +145,7 @@ var standingGroups = students.GroupBy(s => s.GPA switch
     _       => "Academic Warning"
 });
 
-Console.WriteLine("\n--- Academic Standing Report ---");
+Console.WriteLine("\nAcademic Standing Report");
 foreach (var group in standingGroups)
 {
     Console.WriteLine($"\n{group.Key} ({group.Count()}):");
@@ -156,15 +153,12 @@ foreach (var group in standingGroups)
         Console.WriteLine($"  {st.Name} GPA: {st.GPA}");
 }
 
-
 string[] backendCourses  = ["C#", "ASP.NET Core"];
 string[] frontendCourses = ["TypeScript", "Angular"];
 string[] allCourses      = [..backendCourses, ..frontendCourses, "Capstone"];
 
 Console.WriteLine($"\nFull curriculum: {string.Join(", ", allCourses)}");
 
-
-//Exercise 6: Async/Await 
 var sw = Stopwatch.StartNew();
 
 for (int i = 0; i < 5; i++)
@@ -236,8 +230,6 @@ foreach (var st in fetchedStudents)
     Console.WriteLine($"  {st.Name} GPA: {st.GPA}");
 
 
-
-
 var enrollCourse  = new Course { Code = "CRS-101", Title = "C# Mastery", Capacity = 2 };
 var enrollService = new EnrollmentService();
 
@@ -263,8 +255,6 @@ foreach (var student in fetchedStudents)
 }
 
 
-// Exercise 7 Test Custom Exception
-
 try
 {
     var overflowCourse = new Course { Code = "CRS-999", Title = "Overflow Test", Capacity = 1 };
@@ -288,7 +278,7 @@ decimal classAverage = fetchedStudents.Length > 0
     ? fetchedStudents.Average(s => s.GPA)
     : 0m;
 
-Console.WriteLine("\n========== ENROLLMENT SUMMARY ==========");
+Console.WriteLine("\nENROLLMENT SUMMARY");
 Console.WriteLine($"Total students loaded:   {fetchedStudents.Length}");
 Console.WriteLine($"Successful enrollments:  {enrollments.Count}");
 Console.WriteLine($"Failed enrollments:      {failures.Count}");
@@ -297,9 +287,9 @@ Console.WriteLine($"Total elapsed time:      {sw.ElapsedMilliseconds}ms");
 
 if (failures.Count > 0)
 {
-    Console.WriteLine("\n--- Failure Details ---");
+    Console.WriteLine("\n Failure Details");
     foreach (var failure in failures)
         Console.WriteLine($"  {failure}");
 }
 
-Console.WriteLine("========================================");
+Console.WriteLine("=");
